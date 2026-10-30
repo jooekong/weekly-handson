@@ -8,9 +8,21 @@
 
 | 周次 | 主题 | 状态 | 一句话收获 |
 | --- | --- | --- | --- |
-| 2026-W44 | [deepseek-harness](deepseek-harness/) | 进行中 | |
+| W1 · 11.02–11.08 | [deepseek-harness](deepseek-harness/) | 进行中 | |
 
 ## 新开一周
 
-1. 新建目录 `<topic>/`，复制 [deepseek-harness/README.md](deepseek-harness/README.md) 的骨架
+1. `cp -r _template <topic>`，把本周学习计划原文存成 `<topic>/plan.md`
 2. 在上面索引表加一行
+
+## 怎么记录
+
+每个主题目录里：
+
+- `plan.md`：学习计划原文，记录这周要做什么
+- `README.md`：自己的记录，包括环境基线、实验进度、概念理解、验收重点、过程日志和成果
+- `logs/`：关键终端输出、截图，作为复现证据，并在 README 里加链接
+- 代码：直接放在主题目录里。如果实验必须在上游仓库里做，就把上游 clone 到外面，每完成一个实验同步回来提交一次，commit diff 就是代码修改记录
+- `report.md`：验收报告，用学习包自带的模板填写
+
+这是公开仓库，日志和截图提交前先检查有没有 API key、token 等敏感信息。
