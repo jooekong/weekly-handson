@@ -1,0 +1,6 @@
+{
+  "status": "tool-evidence-passed",
+  "answerReview": "pending-human-review",
+  "answer": "查询 OERR 失败：工具返回模拟超时。这不是“查无此订单”，也无法据此判断订单状态。",
+  "callId": "call_P2agneWOJwpUQDCEzNnwB7TQ"
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/node@24/24.22.2_2/bin/node",
+    "/Users/joe/code/dsh-w1/node_modules/@deepseek-ai/dsh/lib/bin.js",
+    "--profile",
+    "headless",
+    "--patch",
+    "/Users/joe/code/dsh-w1/w1-order/w1.patch.yml",
+    "--dump-config"
+  ],
+  "cwd": "/Users/joe/code/dsh-w1-workspace",
+  "node": "v24.22.2",
+  "dsh": "0.2.1-rc.5",
+  "dshHome": "/Users/joe/code/dsh-w1-home",
+  "code": 0,
+  "signal": null,
+  "stopReason": null,
+  "pluginSha256": "1d6735c7125ae1d8f705b9fcce662880756d529cbd16c3d17eca8e865d8e2651",
+  "fixtureSha256": "fe75bb4eaae0ea27b3aae5243d5eeb376aa4fa79b2c46006460d5f478692702e"
+}

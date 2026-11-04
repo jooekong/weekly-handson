@@ -1,0 +1,1 @@
+{"event":"order_audit","callId":"call_P2agneWOJwpUQDCEzNnwB7TQ","orderId":"OERR","dataVersion":"fe75bb4eaae0","durationMs":1.276,"status":"error","error":"SIMULATED_TIMEOUT: order lookup failed; callId=call_P2agneWOJwpUQDCEzNnwB7TQ"}

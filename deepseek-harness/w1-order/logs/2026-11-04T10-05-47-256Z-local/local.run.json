@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/node@24/24.22.2_2/bin/node",
+    "/Users/joe/code/dsh-w1/w1-order/verify.mjs"
+  ],
+  "cwd": "/Users/joe/code/dsh-w1-workspace",
+  "node": "v24.22.2",
+  "dsh": "0.2.1-rc.5",
+  "dshHome": "/Users/joe/code/dsh-w1-home",
+  "code": 0,
+  "signal": null,
+  "stopReason": null,
+  "pluginSha256": "bdd9066dde47cdfd62bed17d2bb1c482ed239192785dd02c6ed2b8d23a21a617",
+  "fixtureSha256": "fe75bb4eaae0ea27b3aae5243d5eeb376aa4fa79b2c46006460d5f478692702e"
+}

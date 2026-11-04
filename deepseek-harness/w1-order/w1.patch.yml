@@ -1,0 +1,84 @@
+- insert:
+    - id: w1-order
+      name: './order-plugin.ts'
+      config:
+        fixturePath: !!js process.env.W1_FIXTURE_PATH
+        testMode: true
+
+- id: tools
+  config:
+    mode: native
+- id: system-prompt
+  config:
+    personaPrefix: >-
+      You are a read-only synthetic order assistant. Use get_order for every
+      order lookup and answer in Chinese using its current result. Report cents
+      as currency amounts. found=false means no order; a tool error means lookup
+      failure, never absence. Do not retry failed calls or invent order data.
+
+- id: session-log-deepseek
+  disabled: true
+- id: session-telemetry-otel
+  disabled: true
+- id: plugin-package-inventory-deepseek
+  disabled: true
+- id: session-title-llm
+  disabled: true
+- id: llm-retry
+  disabled: true
+# Test model: OpenAI-compatible CPA gateway. URL and key live only in
+# $DSH_HOME/.env (the URL path prefix is itself a secret); never commit them.
+- id: llm-pi-ai
+  config:
+    providers:
+      w1-cpa:
+        displayName: W1 CPA (OpenAI-compatible)
+        api: openai-completions
+        baseURL: !!js process.env.W1_OPENAI_BASE_URL
+        apiKeyEnv: W1_OPENAI_API_KEY
+        models:
+          - id: gpt-6-luna
+- id: agent-default-model
+  config:
+    provider: w1-cpa
+    model: gpt-6-luna
+- id: llm-deepseek-account
+  disabled: true
+- id: agent-instructions
+  disabled: true
+- id: skill-filesystem
+  disabled: true
+- id: tool-plugin-manager
+  disabled: true
+- id: tool-working-directory
+  disabled: true
+- id: tool-bash
+  disabled: true
+- id: tool-pwsh
+  disabled: true
+- id: tool-jobs
+  disabled: true
+- id: tool-fs
+  disabled: true
+- id: tool-fs-search
+  disabled: true
+- id: tool-skill
+  disabled: true
+- id: tool-subagent-control
+  disabled: true
+- id: tool-subagent-list-agents
+  disabled: true
+- id: tool-subagent
+  disabled: true
+- id: tool-subagent-fork
+  disabled: true
+- id: tool-workflow
+  disabled: true
+- id: tool-todo
+  disabled: true
+- id: tool-goal
+  disabled: true
+- id: tool-web
+  disabled: true
+- id: plan-mode
+  disabled: true

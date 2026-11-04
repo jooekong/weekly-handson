@@ -1,0 +1,4 @@
+{
+  "O1001": { "status": "paid", "amount_cent": 12900, "currency": "CNY" },
+  "O1002": { "status": "cancelled", "amount_cent": 5800, "currency": "CNY" }
+}

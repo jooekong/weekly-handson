@@ -1,0 +1,21 @@
+{
+  "name": "dsh-w1-order",
+  "version": "0.1.0",
+  "private": true,
+  "description": "W1 learning plugin: read-only synthetic order lookup tool (get_order).",
+  "type": "module",
+  "main": "./order-plugin.ts",
+  "engines": {
+    "dsh": ">=0.2.1-rc.5 <0.3.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/schemastery": "~3.18.5",
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    }
+  }
+}

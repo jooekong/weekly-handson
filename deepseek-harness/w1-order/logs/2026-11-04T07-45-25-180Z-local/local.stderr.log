@@ -1,0 +1,9 @@
+(node:10916) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"event":"order_audit","callId":"local-O1001","orderId":"O1001","dataVersion":"fe75bb4eaae0","durationMs":0.49,"status":"success","error":null}
+{"event":"order_audit","callId":"local-O404","orderId":"O404","dataVersion":"fe75bb4eaae0","durationMs":0.223,"status":"success","error":null}
+{"event":"order_audit","callId":"local-OERR","orderId":"OERR","dataVersion":"fe75bb4eaae0","durationMs":0.158,"status":"error","error":"SIMULATED_TIMEOUT: order lookup failed; callId=local-OERR"}
+{"event":"order_audit","callId":"local-O1001","orderId":"O1001","dataVersion":"a9a75c94e159","durationMs":0.071,"status":"success","error":null}
+{"event":"order_audit","callId":"local-OERR","orderId":"OERR","dataVersion":"a9a75c94e159","durationMs":0.165,"status":"success","error":null}
+{"event":"order_audit","callId":"local-O1001","orderId":"O1001","dataVersion":"be302461cda2","durationMs":0.063,"status":"error","error":"Expected property name or '}' in JSON at position 1 (line 1 column 2)"}
+{"event":"order_audit","callId":"local-O1001","orderId":"O1001","dataVersion":"b67126a3f7cf","durationMs":0.092,"status":"error","error":"$.O1001.amount_cent expected number >= 0 but got -1"}

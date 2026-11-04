@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/Applications/DeepSeek Harness.app/Contents/Resources/runtime/primary-runtime/dependencies/node/bin/node",
+    "/Users/joe/code/dsh-w1/node_modules/@deepseek-ai/dsh/lib/bin.js",
+    "--profile",
+    "headless",
+    "--patch",
+    "/Users/joe/code/dsh-w1/w1-order/w1.patch.yml",
+    "--json",
+    "请调用 get_order 查询 O1001。"
+  ],
+  "cwd": "/Users/joe/code/dsh-w1-workspace",
+  "node": "v24.21.0",
+  "dsh": "0.2.1-rc.5",
+  "dshHome": "/Users/joe/code/dsh-w1-home",
+  "code": 1,
+  "signal": null,
+  "stopReason": null,
+  "pluginSha256": "157fecbd9450d7bfee31c86cb53225d5c3b589af219b04ac9e0677d701e2c200",
+  "fixtureSha256": "fe75bb4eaae0ea27b3aae5243d5eeb376aa4fa79b2c46006460d5f478692702e"
+}

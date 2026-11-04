@@ -1,0 +1,6 @@
+PASS 01-paid (direct tool execution only)
+PASS 02-missing (direct tool execution only)
+PASS 03-error (direct tool execution only)
+PASS 04-refunded (same tool instance rereads changed fixture)
+PASS testMode=false, invalid arguments, corrupt fixture, invalid amount
+LOCAL_ONLY: no Agent Loop, model, or durable tool/result was tested here.

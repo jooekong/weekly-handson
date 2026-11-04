@@ -1,0 +1,8 @@
+# Bundle layer for installing into a profile (e.g. Desktop):
+#   dsh plugin --profile <name> add <absolute path to this directory>
+# Only inserts the tool. fixturePath defaults to ./orders.json next to the
+# plugin; testMode defaults to false (OERR is then a normal "not found").
+# The experiment overlay w1.patch.yml is separate and not part of this bundle.
+- insert:
+    - id: w1-order
+      name: dsh-w1-order

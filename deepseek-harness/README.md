@@ -1,51 +1,22 @@
-# DeepSeek Harness
+# W1 · DeepSeek Harness
 
-- 周次：W1 · 2026.11.02 – 11.08（10.30 提前开始）
-- 状态：进行中
-- 计划：[plan.md](plan.md)
+Joe 的只读模拟订单助手实验，以 [v3 任务卡](ai-delivery-learning-v3/W01-harness.md) 为准。旧版 `plan.md` 保留作历史资料。
 
-## 环境基线
+- 交付及运行说明：[docs/DELIVERY.md](docs/DELIVERY.md)
+- 插件：[w1-order/order-plugin.ts](w1-order/order-plugin.ts)
+- 独立数据：[w1-order/orders.json](w1-order/orders.json)
+- 冻结输入与预期：[w1-order/cases.json](w1-order/cases.json)
+- 验证入口：[w1-order/run.mjs](w1-order/run.mjs)
 
-- deepseek-harness commit：
-- node / pnpm：
-- 测试模型：
+使用 npm 预构建 `@deepseek-ai/dsh@0.2.1-rc.5`，源码基线为 `b830ec950faba0a46dda564be3e2d854afed94f1`，无需编译 Harness。
 
-上游 clone 放在 `~/code/deepseek-harness`，练习包按计划解压到它的根目录，实验都在那里做。每完成一个实验，把插件代码同步回本目录并提交一次：
+| 项目 | 当前状态 |
+| --- | --- |
+| 正常查询、查无数据、模拟超时、fixture 变更 | 直接工具执行验证通过 |
+| 参数及 fixture 错误处理 | 本地验证通过 |
+| patch 配置组合、关闭内置工具及日志上传 | dump-config 通过；运行时 `request/header` 工具集合仅 `get_order` |
+| headless 真实启动（Node 24.22.2） | 通过到预期的 `MISSING_CREDENTIAL`，未发出模型请求 |
+| 真实模型验收 1–3（O1001 / O404 / OERR） | 通过；CPA 网关 `gpt-6-luna`，回答已人工核对 |
+| 验收 4（改 fixture 后新会话复测） | 待 Joe 亲手修改 `orders.json` 后运行 |
 
-```sh
-rsync -a --delete --exclude node_modules --exclude dist \
-  ~/code/deepseek-harness/scratch-plugin/ ~/code/weekly-handson/deepseek-harness/scratch-plugin/
-```
-
-## 实验进度
-
-- [ ] 0. 基线：练习包原样同步进来并提交，后续 commit 的 diff 就是「代码修改」
-- [ ] 1. 正常工具调用：查询 O-1001 → `logs/1-normal.log`
-- [ ] 2. 增加审计能力：execute() 记录订单 ID、耗时、成功/失败 → `logs/2-audit.log`
-- [ ] 3. 模拟异常与缺失数据：O-ERR 超时 vs O-404 → `logs/3-error-vs-404.log`
-- [ ] 验收报告（用练习包里的模板）→ [report.md](report.md)
-
-## 核心概念
-
-- Cordis 插件：
-- 服务注入：
-- Agent Turn / Step：
-- Tool Registry：
-- Session Event Log：
-
-## 验收重点
-
-### execute() 日志 vs 工具执行流水线审计
-
-### 查不到业务数据 vs 工具执行异常
-
-### 决定下一步动作的逻辑 vs 强制执行限制的逻辑
-
-## 过程日志
-
-### 2026-10-30
-
-## 成果
-
-- 一句话收获：
-- 还没搞懂：
+运行 Harness 用 brew keg-only `node@24`（`PATH=/opt/homebrew/opt/node@24/bin:$PATH`），全局 Node 23 不变。证据及下一步见交付文档。

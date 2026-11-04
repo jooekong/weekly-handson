@@ -1,0 +1,27 @@
+[
+  {
+    "id": "01-paid",
+    "orderId": "O1001",
+    "prompt": "请调用 get_order 查询 O1001，报告状态、金额和币种。以本次工具结果为准，只调用一次；失败时报告失败，不要重试。",
+    "expected": { "isError": false, "found": true, "order": { "status": "paid", "amount_cent": 12900, "currency": "CNY" } }
+  },
+  {
+    "id": "02-missing",
+    "orderId": "O404",
+    "prompt": "请调用 get_order 查询 O404。以本次工具结果为准，只调用一次；查无数据时明确说查无此订单，不编造状态、金额或原因；失败时报告失败，不要重试。",
+    "expected": { "isError": false, "found": false }
+  },
+  {
+    "id": "03-error",
+    "orderId": "OERR",
+    "prompt": "测试模式：请调用 get_order 查询 OERR。只调用一次，不要重试；区分查询失败与查无此订单，不推断订单状态。",
+    "expected": { "isError": true, "errorIncludes": "SIMULATED_TIMEOUT" }
+  },
+  {
+    "id": "04-refunded",
+    "orderId": "O1001",
+    "prompt": "请调用 get_order 查询 O1001，报告状态、金额和币种。以本次工具结果为准，只调用一次；失败时报告失败，不要重试。",
+    "fixtureChange": { "orderId": "O1001", "status": "refunded" },
+    "expected": { "isError": false, "found": true, "order": { "status": "refunded", "amount_cent": 12900, "currency": "CNY" } }
+  }
+]
