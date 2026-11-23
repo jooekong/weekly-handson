@@ -1,0 +1,70 @@
+{
+  "pass": true,
+  "sandboxId": "iymqoxcyjrnniyyq2ih6u",
+  "inside": {
+    "cmd": "ps -eo pid,pcpu,etimes,args | grep '[p]ython3 /home/user/loop_bg.py' || true; cat /proc/loadavg",
+    "exitCode": 0,
+    "stdout": "   1513 77.7       0 python3 /home/user/loop_bg.py\n0.00 0.00 0.00 2/88 1518\n",
+    "stderr": "",
+    "ms": 180,
+    "running": true
+  },
+  "timeline": [
+    {
+      "t": 0,
+      "at": "2026-11-23T03:54:55.538Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 5643,
+      "at": "2026-11-23T03:55:00.822Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 10927,
+      "at": "2026-11-23T03:55:06.177Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 16283,
+      "at": "2026-11-23T03:55:11.537Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 21642,
+      "at": "2026-11-23T03:55:16.897Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 27002,
+      "at": "2026-11-23T03:55:22.262Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 32367,
+      "at": "2026-11-23T03:55:27.617Z",
+      "apiListed": false,
+      "hostFirecracker": false,
+      "hostFirecrackerCount": 0
+    }
+  ],
+  "goneAtMs": 32367,
+  "reconnect": "SandboxNotFoundError: Paused sandbox iymqoxcyjrnniyyq2ih6u not found",
+  "orchestratorLog": [
+    "2026-11-23T11:55:24.886+0800  INFO  marking sandbox as stopping  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"iymqoxcyjrnniyyq2ih6u\", \"template.id\": \"cfdywcorl89t33skp644\", \"",
+    "2026-11-23T11:55:24.934+0800  INFO  sandbox lifecycle stopped  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"iymqoxcyjrnniyyq2ih6u\", \"template.id\": \"cfdywcorl89t33skp644\", \"te"
+  ],
+  "durationMs": 33515
+}

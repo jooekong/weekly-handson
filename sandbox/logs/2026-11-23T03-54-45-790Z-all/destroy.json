@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "sandboxId": "iql7q4a908vsiqszy1uz3",
+  "inside": {
+    "cmd": "ps -eo pid,pcpu,etimes,args | grep '[p]ython3 /home/user/loop_bg.py' || true; cat /proc/loadavg",
+    "exitCode": 0,
+    "stdout": "   1513 82.3       0 python3 /home/user/loop_bg.py\n0.00 0.00 0.00 2/88 1518\n",
+    "stderr": "",
+    "ms": 178,
+    "running": true
+  },
+  "before": {
+    "at": "2026-11-23T03:55:54.579Z",
+    "apiListed": true,
+    "hostFirecracker": true,
+    "hostFirecrackerCount": 1
+  },
+  "killed": true,
+  "right": {
+    "at": "2026-11-23T03:55:54.981Z",
+    "apiListed": false,
+    "hostFirecracker": false,
+    "hostFirecrackerCount": 0
+  },
+  "later": {
+    "at": "2026-11-23T03:56:00.338Z",
+    "apiListed": false,
+    "hostFirecracker": false,
+    "hostFirecrackerCount": 0
+  },
+  "reconnect": "SandboxNotFoundError: Paused sandbox iql7q4a908vsiqszy1uz3 not found",
+  "orchestratorLog": [
+    "2026-11-23T11:55:54.707+0800  INFO  marking sandbox as stopping  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"iql7q4a908vsiqszy1uz3\", \"template.id\": \"cfdywcorl89t33skp644\", \"",
+    "2026-11-23T11:55:54.734+0800  INFO  sandbox lifecycle stopped  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"iql7q4a908vsiqszy1uz3\", \"template.id\": \"cfdywcorl89t33skp644\", \"te",
+    "2026-11-23T11:55:57.735+0800  INFO  sandbox network map entry removed  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"iql7q4a908vsiqszy1uz3\", \"template.id\": \"cfdywcorl89t33skp6"
+  ],
+  "durationMs": 19675
+}

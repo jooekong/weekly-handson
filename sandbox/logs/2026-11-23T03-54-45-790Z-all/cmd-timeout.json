@@ -1,0 +1,27 @@
+{
+  "pass": true,
+  "sandboxId": "i28i2ix2uikbrb7g2kpxc",
+  "during": {
+    "cmd": "ps -eo pid,pcpu,etimes,args | grep '[p]ython3 /home/user/loop_cmd.py' || true; cat /proc/loadavg",
+    "exitCode": 0,
+    "stdout": "   1513 98.1       2 python3 /home/user/loop_cmd.py\n0.08 0.02 0.01 2/88 1518\n",
+    "stderr": "",
+    "ms": 270,
+    "running": true
+  },
+  "timed": {
+    "cmd": "python3 /home/user/loop_cmd.py",
+    "error": "TimeoutError",
+    "message": "[deadline_exceeded] the operation timed out: This error is likely due to exceeding 'timeoutMs' — the total time a long running request (like command execution or directory watch) can be active. It can be modified by passing 'timeoutMs' when making the request. Use '0' to disable the timeout.",
+    "ms": 5006
+  },
+  "after": {
+    "cmd": "ps -eo pid,pcpu,etimes,args | grep '[p]ython3 /home/user/loop_cmd.py' || true; cat /proc/loadavg",
+    "exitCode": 0,
+    "stdout": "0.07 0.02 0.00 1/87 1522\n",
+    "stderr": "",
+    "ms": 126,
+    "running": false
+  },
+  "durationMs": 7522
+}

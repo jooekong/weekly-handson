@@ -1,0 +1,11 @@
+{
+  "csv": "PASS",
+  "cmd-timeout": "PASS",
+  "sbx-timeout": "PASS",
+  "network": "PASS",
+  "destroy": "PASS",
+  "leftover": {
+    "apiSandboxes": [],
+    "hostFirecracker": []
+  }
+}

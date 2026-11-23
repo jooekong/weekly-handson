@@ -1,0 +1,24 @@
+{
+  "_note": "Hand-computed before implementation; cross-checked with awk at run time. Do not regenerate from aggregate.py.",
+  "aggregate": {
+    "regions": {
+      "east":  { "count": 5, "sum_cents": 310 },
+      "north": { "count": 6, "sum_cents": 350 },
+      "south": { "count": 5, "sum_cents": 300 },
+      "west":  { "count": 4, "sum_cents": 305 }
+    },
+    "total": { "count": 20, "sum_cents": 1265 }
+  },
+  "network": {
+    "allowedTarget": "1.1.1.1",
+    "deniedTarget": "1.0.0.1",
+    "baseline": { "1.1.1.1": "reachable", "1.0.0.1": "reachable" },
+    "policy":   { "1.1.1.1": "reachable", "1.0.0.1": "blocked" },
+    "tightened": { "1.1.1.1": "blocked", "1.0.0.1": "blocked" }
+  },
+  "timeouts": {
+    "commandTimeoutMs": 5000,
+    "sandboxTimeoutMs": 30000,
+    "sandboxGoneWithinMs": 90000
+  }
+}

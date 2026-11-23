@@ -1,0 +1,137 @@
+{
+  "pass": true,
+  "baseline": {
+    "label": "baseline",
+    "sandboxId": "iftq82r8sjvwc0amdv4n3",
+    "networkOpts": null,
+    "probes": [
+      {
+        "ip": "1.1.1.1",
+        "raw": "301 curl_exit=0",
+        "result": "reachable"
+      },
+      {
+        "ip": "1.0.0.1",
+        "raw": "301 curl_exit=0",
+        "result": "reachable"
+      }
+    ],
+    "observed": {
+      "1.1.1.1": "reachable",
+      "1.0.0.1": "reachable"
+    },
+    "pass": true,
+    "privateProbes": [
+      {
+        "cmd": "curl -s -m 5 -o /dev/null -w '%{http_code}' http://192.168.1.201:3000/health; echo \" curl_exit=$?\"",
+        "exitCode": 0,
+        "stdout": "000 curl_exit=28\n",
+        "stderr": "",
+        "ms": 5104
+      },
+      {
+        "cmd": "curl -s -m 5 -o /dev/null -w '%{http_code}' http://100.111.51.1:3000/health; echo \" curl_exit=$?\"",
+        "exitCode": 0,
+        "stdout": "000 curl_exit=28\n",
+        "stderr": "",
+        "ms": 5186
+      }
+    ],
+    "filePerm": {
+      "allowedRead": {
+        "cmd": "cat /home/user/allowed.txt; echo \" exit=$?\"",
+        "exitCode": 0,
+        "stdout": "ok\n exit=0\n",
+        "stderr": "",
+        "ms": 70
+      },
+      "forbiddenRead": {
+        "cmd": "cat /home/user/forbidden/f 2>&1; echo \" exit=$?\"",
+        "exitCode": 0,
+        "stdout": "cat: /home/user/forbidden/f: Permission denied\n exit=1\n",
+        "stderr": "",
+        "ms": 82
+      },
+      "forbiddenViaSudo": {
+        "cmd": "sudo -n cat /home/user/forbidden/f 2>&1; echo \" exit=$?\"",
+        "exitCode": 0,
+        "stdout": "synthetic-secret\n exit=0\n",
+        "stderr": "",
+        "ms": 132
+      }
+    }
+  },
+  "policy": {
+    "label": "policy",
+    "sandboxId": "iagzyeoknfjsfv8jlioku",
+    "networkOpts": {
+      "denyOut": [
+        "0.0.0.0/0"
+      ],
+      "allowOut": [
+        "1.1.1.1"
+      ]
+    },
+    "apiNetworkInfo": {
+      "allowOut": [
+        "1.1.1.1"
+      ],
+      "denyOut": [
+        "0.0.0.0/0"
+      ],
+      "allowPublicTraffic": true
+    },
+    "probes": [
+      {
+        "ip": "1.1.1.1",
+        "raw": "301 curl_exit=0",
+        "result": "reachable"
+      },
+      {
+        "ip": "1.0.0.1",
+        "raw": "000 curl_exit=52",
+        "result": "blocked"
+      }
+    ],
+    "observed": {
+      "1.1.1.1": "reachable",
+      "1.0.0.1": "blocked"
+    },
+    "pass": true,
+    "hostRules": "-A PREROUTING -d 192.0.2.1/32 -i e2b-1 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 5010\n-A PREROUTING -d 192.0.2.1/32 -i e2b-1 -p tcp -m tcp --dport 111 -j REDIRECT --to-ports 5012\n-A PREROUTING -d 192.0.2.1/32 -i e2b-1 -p tcp -m tcp --dport 2049 -j REDIRECT --to-ports 5011\n-A PREROUTING -i e2b-1 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 5016\n-A PREROUTING -i e2b-1 -p tcp -m tcp --dport 443 -j REDIRECT --to-ports 5017\n-A PREROUTING -i e2b-1 -p tcp -j REDIRECT --to-ports 5018\ntable inet slot-firewall {\n\tchain PREROUTE_FILTER {\n\t\ttype filter hook prerouting priority mangle; policy accept;\n\t\tiifname \"tap0\" ct state established,related meta l4proto != udp accept\n\t\tiifname \"tap0\" ct state established,related ct direction reply accept\n\t\tiifname \"tap0\" @nh,128,32 @filtered_always_allowlist accept\n\t\tiifname \"tap0\" @nh,128,32 @filtered_always_denylist drop\n\t\tiifname \"tap0\" meta l4proto != tcp @nh,128,32 @filtered_allowlist accept\n\t\tiifname \"tap0\" meta l4proto != tcp @nh,128,32 @filtered_denylist drop\n\t}\n}\ntable inet slot-firewall {\n\tset filtered_always_denylist {\n\t\ttype ipv4_addr\n\t\tflags interval\n\t\tcounter\n\t\telements = { 10.0.0.0/8 counter packets 0 bytes 0, 100.64.0.0/10 counter packets 0 bytes 0,\n\t\t\t     127.0.0.0/8 counter packets 0 bytes 0, 169.254.0.0/16 counter packets 0 bytes 0,\n\t\t\t     172.16.0.0/12 counter packets 0 bytes 0, 192.168.0.0/16 counter packets 0 bytes 0 }\n\t}\n}\n"
+  },
+  "tightened": {
+    "label": "tightened",
+    "sandboxId": "iimclyoxl8ybjir9unhdy",
+    "networkOpts": {
+      "denyOut": [
+        "0.0.0.0/0"
+      ],
+      "allowOut": []
+    },
+    "apiNetworkInfo": {
+      "denyOut": [
+        "0.0.0.0/0"
+      ],
+      "allowPublicTraffic": true
+    },
+    "probes": [
+      {
+        "ip": "1.1.1.1",
+        "raw": "000 curl_exit=52",
+        "result": "blocked"
+      },
+      {
+        "ip": "1.0.0.1",
+        "raw": "000 curl_exit=52",
+        "result": "blocked"
+      }
+    ],
+    "observed": {
+      "1.1.1.1": "blocked",
+      "1.0.0.1": "blocked"
+    },
+    "pass": true
+  },
+  "durationMs": 47612
+}

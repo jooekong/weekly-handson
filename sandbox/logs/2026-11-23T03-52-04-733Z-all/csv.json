@@ -1,0 +1,74 @@
+{
+  "pass": true,
+  "sandboxId": "ibfquneq1l3omi8057cks",
+  "env": {
+    "cmd": "uname -r; nproc; free -m | sed -n 2p; id; python3 --version; df -h / | tail -1",
+    "exitCode": 0,
+    "stdout": "6.1.177+\n2\nMem:             473          49         342           1          95         423\nuid=1000(user) gid=1000(user) groups=1000(user),27(sudo)\nPython 3.11.6\n/dev/root       2.6G  1.3G 1016M  56% /\n",
+    "stderr": "",
+    "ms": 210
+  },
+  "run": {
+    "cmd": "python3 /home/user/aggregate.py /home/user/orders.csv /home/user/out.json",
+    "exitCode": 0,
+    "stdout": "{\"count\": 20, \"sum_cents\": 1265}\n",
+    "stderr": "",
+    "ms": 156
+  },
+  "out": {
+    "regions": {
+      "east": {
+        "count": 5,
+        "sum_cents": 310
+      },
+      "north": {
+        "count": 6,
+        "sum_cents": 350
+      },
+      "south": {
+        "count": 5,
+        "sum_cents": 300
+      },
+      "west": {
+        "count": 4,
+        "sum_cents": 305
+      }
+    },
+    "total": {
+      "count": 20,
+      "sum_cents": 1265
+    }
+  },
+  "expected": {
+    "regions": {
+      "east": {
+        "count": 5,
+        "sum_cents": 310
+      },
+      "north": {
+        "count": 6,
+        "sum_cents": 350
+      },
+      "south": {
+        "count": 5,
+        "sum_cents": 300
+      },
+      "west": {
+        "count": 4,
+        "sum_cents": 305
+      }
+    },
+    "total": {
+      "count": 20,
+      "sum_cents": 1265
+    }
+  },
+  "awkCrossCheck": [
+    "east 5 310",
+    "north 6 350",
+    "south 5 300",
+    "total 20 1265",
+    "west 4 305"
+  ],
+  "durationMs": 1186
+}

@@ -1,0 +1,69 @@
+{
+  "pass": true,
+  "sandboxId": "ixcs4qbnozac8q01ery5c",
+  "inside": {
+    "cmd": "pgrep -af loop_bg.py",
+    "exitCode": 0,
+    "stdout": "1513 python3 /home/user/loop_bg.py\n",
+    "stderr": "",
+    "ms": 180
+  },
+  "timeline": [
+    {
+      "t": 0,
+      "at": "2026-11-23T03:52:14.499Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 5637,
+      "at": "2026-11-23T03:52:19.858Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 10996,
+      "at": "2026-11-23T03:52:25.146Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 16284,
+      "at": "2026-11-23T03:52:30.498Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 21635,
+      "at": "2026-11-23T03:52:35.857Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 26995,
+      "at": "2026-11-23T03:52:41.215Z",
+      "apiListed": true,
+      "hostFirecracker": true,
+      "hostFirecrackerCount": 1
+    },
+    {
+      "t": 32353,
+      "at": "2026-11-23T03:52:46.501Z",
+      "apiListed": false,
+      "hostFirecracker": false,
+      "hostFirecrackerCount": 0
+    }
+  ],
+  "goneAtMs": 32353,
+  "reconnect": "SandboxNotFoundError: Paused sandbox ixcs4qbnozac8q01ery5c not found",
+  "orchestratorLog": [
+    "2026-11-23T11:52:43.839+0800  INFO  marking sandbox as stopping  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"ixcs4qbnozac8q01ery5c\", \"template.id\": \"cfdywcorl89t33skp644\", \"",
+    "2026-11-23T11:52:43.885+0800  INFO  sandbox lifecycle stopped  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"ixcs4qbnozac8q01ery5c\", \"template.id\": \"cfdywcorl89t33skp644\", \"te"
+  ],
+  "durationMs": 33419
+}

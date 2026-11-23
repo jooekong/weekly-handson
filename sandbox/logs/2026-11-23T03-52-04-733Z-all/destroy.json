@@ -1,0 +1,37 @@
+{
+  "pass": true,
+  "sandboxId": "i0fbze0mm1fm8en43s3h1",
+  "inside": {
+    "cmd": "pgrep -af loop_bg.py",
+    "exitCode": 0,
+    "stdout": "1513 python3 /home/user/loop_bg.py\n",
+    "stderr": "",
+    "ms": 93
+  },
+  "before": {
+    "at": "2026-11-23T03:53:35.461Z",
+    "apiListed": true,
+    "hostFirecracker": true,
+    "hostFirecrackerCount": 1
+  },
+  "killed": true,
+  "right": {
+    "at": "2026-11-23T03:53:35.778Z",
+    "apiListed": false,
+    "hostFirecracker": false,
+    "hostFirecrackerCount": 0
+  },
+  "later": {
+    "at": "2026-11-23T03:53:41.057Z",
+    "apiListed": false,
+    "hostFirecracker": false,
+    "hostFirecrackerCount": 0
+  },
+  "reconnect": "SandboxNotFoundError: Paused sandbox i0fbze0mm1fm8en43s3h1 not found",
+  "orchestratorLog": [
+    "2026-11-23T11:53:35.507+0800  INFO  marking sandbox as stopping  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"i0fbze0mm1fm8en43s3h1\", \"template.id\": \"cfdywcorl89t33skp644\", \"",
+    "2026-11-23T11:53:35.528+0800  INFO  sandbox lifecycle stopped  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"i0fbze0mm1fm8en43s3h1\", \"template.id\": \"cfdywcorl89t33skp644\", \"te",
+    "2026-11-23T11:53:38.530+0800  INFO  sandbox network map entry removed  {\"service\": \"orchestrator_template-manager\", \"internal\": true, \"pid\": 2124, \"sandbox.id\": \"i0fbze0mm1fm8en43s3h1\", \"template.id\": \"cfdywcorl89t33skp6"
+  ],
+  "durationMs": 6972
+}

@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-11-23T03:52:04.734Z",
+  "host": "100.111.51.1",
+  "template": "base",
+  "node": "v23.10.0",
+  "sdk": "2.62.0",
+  "server": [
+    "93d747e8967dc83e9cd56dff2e8105c880bb3af6",
+    "",
+    "DEFAULT_KERNEL_VERSION=vmlinux-6.1.177_5008931",
+    "DEFAULT_FIRECRACKER_VERSION=v1.17-0.4.1",
+    "E2B_ORCHESTRATOR_VERSION=v0.30.202611112209-a4981d7dc00",
+    "MAX_SANDBOXES_PER_NODE=4",
+    "6.8.0-149-generic"
+  ]
+}

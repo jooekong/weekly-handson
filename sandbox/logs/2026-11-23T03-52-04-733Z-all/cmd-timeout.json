@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "sandboxId": "i4yrex4m6uyouir5nrrc6",
+  "timed": {
+    "cmd": "python3 /home/user/loop_cmd.py",
+    "error": "TimeoutError",
+    "message": "[deadline_exceeded] the operation timed out: This error is likely due to exceeding 'timeoutMs' — the total time a long running request (like command execution or directory watch) can be active. It can be modified by passing 'timeoutMs' when making the request. Use '0' to disable the timeout.",
+    "ms": 5007
+  },
+  "after": {
+    "cmd": "pgrep -af loop_cmd.py || echo NO_PROCESS; cat /proc/loadavg",
+    "exitCode": 0,
+    "stdout": "1571 /bin/bash -l -c pgrep -af loop_cmd.py || echo NO_PROCESS; cat /proc/loadavg\n0.07 0.02 0.00 1/89 1573\n",
+    "stderr": "",
+    "ms": 184
+  },
+  "stillRunning": false,
+  "durationMs": 7596
+}
