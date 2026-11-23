@@ -128,6 +128,25 @@ guest 出站：tap0 → ns-N nft slot-firewall（私网段 drop；非 TCP 按 al
 - e2b-dev/infra · [self-host.md](https://github.com/e2b-dev/infra/blob/main/self-host.md)：Firecracker 需要裸金属或嵌套虚拟化。
 - 本地 SDK 类型定义 `node_modules/e2b/dist/index.d.ts`（2.62.0）：`SandboxNetworkConfig`、`SandboxLifecycle.onTimeout`、`CommandStartOpts.timeoutMs`（默认 60 s）。
 
-## 10. 我的结论（待 Joe 用自己的话改写）
+## 10. 我的结论
 
-> 我接受这个方案，因为……；关键证据是……；目前不能承诺……，失败时我会……。
+> 由 Claude 按 Joe 的要求起草，Joe 确认后提交。
+
+我接受这个方案，因为隔离发生在执行端而不是应用层：代码跑在 Firecracker microVM 里，网络限制由宿主机侧的 netns nft 和 egress 代理执行，生命周期由 orchestrator 直接结束 VM 进程。VM 里的代码（包括有免密 sudo 的 `user`）改不了这几层。Mac 只当客户端，Linux KVM 主机当执行端，这也回答了 Apple Silicon 的适配问题，不需要用普通子进程冒充沙箱。
+
+关键证据是：
+- 同一个目标 IP，不加策略时能访问、加策略后被拒，而且宿主机该 slot 的 `filtered_denylist` / `filtered_allowlist` 与下发的策略一致；
+- 死循环在执行中可见（CPU 98%），超时后进程消失；
+- 客户端不调用 kill，沙箱到期后服务器上的 firecracker 进程和 API 记录同时消失，orchestrator 日志里有完整的停止记录；
+- 全部用例跑完后，API 和宿主机上都是 0 残留。
+
+目前不能承诺：
+- UDP/ICMP/IPv6/DNS 出站是否也被限制；
+- 伪造 Host 或 SNI 能否绕过域名白名单；
+- `192.0.2.1` 平台通道暴露了什么；
+- CPU 和磁盘配额是否硬限制，内存上限也缺原始证据；
+- 沙箱逃逸。
+
+一次拒绝成功只证明了「这条策略下、这类 TCP 流量」被拦住，不代表整个沙箱安全。
+
+失败时我会：如果策略或超时没在执行端生效，把对应用例记为 FAIL，停止让不受信任的代码在这个环境里运行，而不是放宽验收标准；按 `Sandbox.list()` 和宿主机 `pgrep firecracker` 找出残留并逐个 kill。上线前要先补上述未验证项的反例测试，再扩大使用范围。

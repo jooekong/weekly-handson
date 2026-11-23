@@ -21,7 +21,7 @@
 - [x] 网络 allow/deny 对照，以及收紧后复测 → `network.json`
 - [x] kill 后 API 和宿主机都无残留 → `destroy.json`、`summary.json`
 - [x] 手动交互场景（找密钥、域名白名单、内存炸弹）→ DELIVERY「手动交互验证」
-- [ ] DELIVERY §10 用自己的话写结论
+- [x] DELIVERY §10 结论
 
 ## 怎么跑
 
